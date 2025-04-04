@@ -1,10 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors"); // <--- Adicionado aqui
 require("dotenv").config();
 
 const app = express();
-app.use(express.json());
 const port = 3000;
+
+// Habilita o CORS
+app.use(cors());
+app.use(express.json());
 
 const Film = mongoose.model("Film", {
   title: String,
@@ -31,6 +35,5 @@ app.post("/", async (req, res) => {
 
 app.listen(port, () => {
   mongoose.connect(process.env.MONGODB_URI);
-
   console.log(`🚀 Servidor rodando em http://localhost:${port}`);
 });
