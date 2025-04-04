@@ -1,0 +1,9 @@
+# Ignora o arquivo com variáveis de ambiente
+.env
+
+# Ignora a pasta do Node
+node_modules
+
+# Outros arquivos que você pode querer ignorar
+.DS_Store
+dist
